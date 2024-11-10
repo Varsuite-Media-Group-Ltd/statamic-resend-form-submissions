@@ -1,0 +1,31 @@
+{
+    "name": "varsuite/statamic-resend-form-submissions",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Varsuite\\StatamicResendFormSubmissions\\": "src"
+        }
+    },
+    "require": {
+        "statamic/cms": "^5.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "pixelfear/composer-dist-plugin": true
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Resend Form Submissions",
+            "description": "Adds a button to the submissions list that allows you to resend the email for the form submission",
+            "version": "1.0.0"
+        },
+        "laravel": {
+            "providers": [
+                "Varsuite\\StatamicResendFormSubmissions\\ServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
