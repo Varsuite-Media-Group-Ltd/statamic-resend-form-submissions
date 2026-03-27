@@ -1,6 +1,10 @@
 # Statamic Resend Form Submissions Addon
 
-![screenshot.png](screenshot.png)
+<br><br>
+
+<img width="1918" height="550" alt="CleanShot 2026-03-27 at 10 06 10@2x" src="https://github.com/user-attachments/assets/f27b3486-7566-4072-b5fe-1a39a2de7f57" />
+
+
 
 This Statamic addon, developed by Varsuite Media Group Limited, provides an easy way to resend form submissions directly from the Statamic control panel.
 The `ResendFormSubmissions` action allows you to resend submission data to the form's email recipients, with the option to override the original email address.
