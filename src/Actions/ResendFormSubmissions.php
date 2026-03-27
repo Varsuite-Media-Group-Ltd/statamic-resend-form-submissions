@@ -40,8 +40,34 @@ class ResendFormSubmissions extends Action
         /** @var \Illuminate\Support\Collection $items */
         $items->each(function (Submission $submission) use ($overriddenEmail, $site) {
             if ($overriddenEmail !== null) {
-                $submission->data()->put('form_email', $overriddenEmail);
+                $emails = $submission->form->email();
+
+                $subject = '';
+                $html = '';
+                $text = '';
+                $markdown = false;
+                $attachment = false;
+
+                if (count($emails)) {
+                    $subject = $emails[0]['subject'] ?? '';
+                    $html = $emails[0]['html'] ?? '';
+                    $text = $emails[0]['text'] ?? '';
+                    $markdown = $emails[0]['markdown'] ?? false;
+                    $attachment = $emails[0]['attachment'] ?? false;
+                }
+
+                $submission->form->email([
+                    [
+                        'to' => $overriddenEmail,
+                        'subject' => $subject,
+                        'html' => $html,
+                        'text' => $text,
+                        'markdown' => $markdown,
+                        'attachment' => $attachment,
+                    ]
+                ]);
             }
+
             SendEmails::dispatch($submission, $site);
         });
     }
