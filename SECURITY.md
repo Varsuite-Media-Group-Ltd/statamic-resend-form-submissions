@@ -6,7 +6,7 @@ Current versions of this package that are supported:
 
 | Version | Statmic Version | Supported          |
 | ------- | --------------- | ------------------ |
-| 1.x     | 5.x             | :white_check_mark: |
+| 1.x     | 5.x & 6.x       | :white_check_mark: |
 
 Depending on the severity of any security vulnerabilities, we may backport security fixes to unsupported versions.
 

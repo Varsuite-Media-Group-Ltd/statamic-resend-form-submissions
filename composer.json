@@ -18,7 +18,7 @@
         "statamic": {
             "name": "Resend Form Submissions",
             "description": "Adds a button to the submissions list that allows you to resend the email for the form submission",
-            "version": "1.0.0"
+            "version": "1.1.0"
         },
         "laravel": {
             "providers": [
