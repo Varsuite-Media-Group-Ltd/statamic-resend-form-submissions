@@ -40,8 +40,24 @@ class ResendFormSubmissions extends Action
         /** @var \Illuminate\Support\Collection $items */
         $items->each(function (Submission $submission) use ($overriddenEmail, $site) {
             if ($overriddenEmail !== null) {
-                $submission->data()->put('form_email', $overriddenEmail);
+                $emails = $submission->form->email();
+
+                if (count($emails)) {
+                    foreach ($emails as $index => $emailConfig) {
+                        $emailConfig['to'] = $overriddenEmail;
+                        $emails[$index] = $emailConfig;
+                    }
+
+                    $submission->form->email($emails);
+                } else {
+                    $submission->form->email([
+                        [
+                            'to' => $overriddenEmail,
+                        ],
+                    ]);
+                }
             }
+
             SendEmails::dispatch($submission, $site);
         });
     }
